@@ -1,16 +1,16 @@
 package com.example.controllers;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/api")
+@Controller
 public class HelloController {
 
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello, World!";
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("message", "Welcome to My Web App!");
+        return "index"; // maps to src/main/resources/templates/index.html
     }
 }
 
